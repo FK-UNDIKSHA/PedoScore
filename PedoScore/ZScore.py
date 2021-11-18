@@ -150,13 +150,13 @@ def IMT(weight:float, height:float) -> dict:
     stats_ = ""
 
     if imt < 18.5:
-        stats_ = "Underweight"
+        stats_ = "Suspect Stunting" #"Underweight"
     elif imt >= 18.5 and imt <= 24.9:
-        stats_ = "Normal"
+        stats_ = "Non Suspect Stunting" #"Normal"
     elif imt >25.0 and imt <=29.9:
-        stats_ = "Pre-Obese"
+        stats_ = "Non Suspect Stunting" #"Pre-Obese"
     elif imt >= 30.0:
-        stats_ = "Obese"
+        stats_ = "Non Suspect Stunting" #"Obese"
 
     return {"IMT": imt, "Status": stats_}
 
@@ -190,12 +190,12 @@ def ZScore(age: int, weight: float, gender: str) -> dict:
 
     #Get Status Gizi
     if round(SD) < -3:
-        status = "Severe Underweight"
+        status = "Suspect Stunting" #"Severe Underweight"
     elif round(SD) >= -3 and round(SD) < -2:
-        status = "Underweight"
+        status = "Suspect Stunting" #"Underweight"
     elif round(SD) > -2 and round(SD) <= 2:
-        status = "Normal"
+        status = "Non Suspect Stunting" #"Normal"
     elif round(SD) > 2:
-        status = "More Nutritions"
+        status = "Non Suspect Stunting" #"More Nutritions"
 
     return {"SD": round(SD), "Status": status}
